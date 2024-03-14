@@ -1,8 +1,8 @@
-package org.example.patterns
+package org.example.patterns.abstractfactory
 
 interface Plant
 
-class OrangePlant :Plant{
+class OrangePlant : Plant {
     init {
         println("OrgangePlant MAKE")
     }
@@ -12,7 +12,7 @@ class ApplePlant : Plant
 
 abstract class PlantFactory{
 
-    abstract fun makePlan() :Plant
+    abstract fun makePlan() : Plant
 
     companion object{
         inline fun<reified T : Plant> createFactory() : PlantFactory =
@@ -24,7 +24,7 @@ abstract class PlantFactory{
     }
 }
 
-class AppleFactory :PlantFactory(){
+class AppleFactory : PlantFactory(){
     override fun makePlan(): Plant {
        return ApplePlant()
     }
